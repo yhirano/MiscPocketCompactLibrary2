@@ -1,12 +1,12 @@
-﻿#region ディレクティブを使用する
+﻿using System;
 
-using System;
 using System.IO;
 
-#endregion
-
-namespace MiscPocketCompactLibrary.Diagnostics
+namespace MiscPocketCompactLibrary2.Diagnostics
 {
+    /// <summary>
+    /// ログ書き込みクラス
+    /// </summary>
     public class Log
     {
         /// <summary>

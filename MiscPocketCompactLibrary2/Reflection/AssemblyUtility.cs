@@ -130,7 +130,9 @@ namespace MiscPocketCompactLibrary2.Reflection
         private const uint SHGFI_LARGEICON = 0x0; // 大きいアイコン
         private const uint SHGFI_SMALLICON = 0x1; // 小さいアイコン
 
-        // SHGetFileInfo関数で使用する構造体
+        /// <summary>
+        /// SHGetFileInfo関数で使用する構造体
+        /// </summary>
         private struct SHFILEINFO
         {
             public IntPtr hIcon;
