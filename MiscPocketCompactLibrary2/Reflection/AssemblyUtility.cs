@@ -13,6 +13,14 @@ namespace MiscPocketCompactLibrary2.Reflection
     public static class AssemblyUtility
     {
         /// <summary>
+        /// Assemblyを取得する
+        /// </summary>
+        public static Assembly Assembly
+        {
+            get { return Assembly2.GetEntryAssembly(); }
+        }
+
+        /// <summary>
         /// AssemblyTitleを取得する
         /// </summary>
         public static string Title
