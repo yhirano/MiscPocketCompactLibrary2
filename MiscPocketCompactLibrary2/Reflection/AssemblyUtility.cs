@@ -93,6 +93,17 @@ namespace MiscPocketCompactLibrary2.Reflection
         }
 
         /// <summary>
+        /// Locationを取得する
+        /// </summary>
+        public static string Location
+        {
+            get
+            {
+                return Assembly2.GetEntryAssembly().GetModules()[0].FullyQualifiedName;
+            }
+        }
+
+        /// <summary>
         /// バージョンを取得する
         /// </summary>
         public static Version Version
