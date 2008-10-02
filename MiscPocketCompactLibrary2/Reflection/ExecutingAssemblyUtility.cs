@@ -3,21 +3,20 @@
 using System.Reflection;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using OpenNETCF.Reflection;
 
 namespace MiscPocketCompactLibrary2.Reflection
 {
     /// <summary>
     /// アセンブリのユーティリティ
     /// </summary>
-    public static class AssemblyUtility
+    public static class ExecutingAssemblyUtility
     {
         /// <summary>
         /// Assemblyを取得する
         /// </summary>
         public static Assembly Assembly
         {
-            get { return Assembly2.GetEntryAssembly(); }
+            get { return Assembly.GetExecutingAssembly(); }
         }
 
         /// <summary>
@@ -27,7 +26,7 @@ namespace MiscPocketCompactLibrary2.Reflection
         {
             get
             {
-                return ((AssemblyTitleAttribute)Assembly2.GetEntryAssembly().GetCustomAttributes(
+                return ((AssemblyTitleAttribute)Assembly.GetCustomAttributes(
                     typeof(AssemblyTitleAttribute), false)[0]).Title;
             }
         }
@@ -39,7 +38,7 @@ namespace MiscPocketCompactLibrary2.Reflection
         {
             get
             {
-                return ((AssemblyDescriptionAttribute)Assembly2.GetEntryAssembly().GetCustomAttributes(
+                return ((AssemblyDescriptionAttribute)Assembly.GetCustomAttributes(
                     typeof(AssemblyDescriptionAttribute), false)[0]).Description;
             }
         }
@@ -51,7 +50,7 @@ namespace MiscPocketCompactLibrary2.Reflection
         {
             get
             {
-                return ((AssemblyCompanyAttribute)Assembly2.GetEntryAssembly().GetCustomAttributes(
+                return ((AssemblyCompanyAttribute)Assembly.GetCustomAttributes(
                     typeof(AssemblyCompanyAttribute), false)[0]).Company;
             }
         }
@@ -63,7 +62,7 @@ namespace MiscPocketCompactLibrary2.Reflection
         {
             get
             {
-                return ((AssemblyProductAttribute)Assembly2.GetEntryAssembly().GetCustomAttributes(
+                return ((AssemblyProductAttribute)Assembly.GetCustomAttributes(
                     typeof(AssemblyProductAttribute), false)[0]).Product;
             }
         }
@@ -75,7 +74,7 @@ namespace MiscPocketCompactLibrary2.Reflection
         {
             get
             {
-                return ((AssemblyCopyrightAttribute)Assembly2.GetEntryAssembly().GetCustomAttributes(
+                return ((AssemblyCopyrightAttribute)Assembly.GetCustomAttributes(
                     typeof(AssemblyCopyrightAttribute), false)[0]).Copyright;
             }
         }
@@ -87,7 +86,7 @@ namespace MiscPocketCompactLibrary2.Reflection
         {
             get
             {
-                return ((AssemblyTrademarkAttribute)Assembly2.GetEntryAssembly().GetCustomAttributes(
+                return ((AssemblyTrademarkAttribute)Assembly.GetCustomAttributes(
                     typeof(AssemblyTrademarkAttribute), false)[0]).Trademark;
             }
         }
@@ -99,7 +98,7 @@ namespace MiscPocketCompactLibrary2.Reflection
         {
             get
             {
-                return Assembly2.GetEntryAssembly().GetModules()[0].FullyQualifiedName;
+                return Assembly.GetModules()[0].FullyQualifiedName;
             }
         }
 
@@ -110,7 +109,7 @@ namespace MiscPocketCompactLibrary2.Reflection
         {
             get
             {
-                return Assembly2.GetEntryAssembly().GetName().Version;
+                return Assembly.GetName().Version;
             }
         }
 
@@ -124,7 +123,7 @@ namespace MiscPocketCompactLibrary2.Reflection
                 // アプリケーション・アイコンを取得
                 SHFILEINFO shinfo = new SHFILEINFO();
                 IntPtr hSuccess = SHGetFileInfo(
-                    Assembly.GetExecutingAssembly().GetModules()[0].FullyQualifiedName,
+                    Assembly.GetModules()[0].FullyQualifiedName,
                     0, ref shinfo, (uint)Marshal.SizeOf(shinfo), SHGFI_ICON | SHGFI_LARGEICON);
                 if (hSuccess != IntPtr.Zero)
                 {
