@@ -146,7 +146,6 @@ namespace MiscPocketCompactLibrary2.Net
             }
 
             return webReq.GetResponse().GetResponseStream();
-
         }
     }
 }
